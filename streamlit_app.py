@@ -147,12 +147,10 @@ with viz_col3:
     st.bar_chart(industry_counts)
 
 with viz_col4:
-    # Attack sources distribution
-    st.subheader("Attack Sources Distribution")
-    source_counts = df_selection['Attack Source'].value_counts()
-    
-    # Display as table since pie chart is not available in native Streamlit
-    st.dataframe(source_counts, use_container_width=True)
+    # Security Vulnerability Type Distribution
+    st.subheader("Security Vulnerability Type Distribution")
+    industry_counts = df_selection['Security Vulnerability Type'].value_counts().head(10)
+    st.bar_chart(industry_counts)
 
 # Time series analysis
 st.subheader("Cyber Attacks Over Time")
