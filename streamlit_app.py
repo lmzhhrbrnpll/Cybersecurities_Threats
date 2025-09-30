@@ -13,7 +13,7 @@ st.set_page_config(
 @st.cache_data
 def load_data():
    """Loads the dataset"""
-   df = pd.read_csv('/workspaces/Cybersecurities_Threats/data/cybersecurity_threats.csv')
+   df = pd.read_csv('data/cybersecurity_threats.csv')
    # Drop rows with missing values for simplicity in this demo
    df.dropna(inplace=True)
    return df
