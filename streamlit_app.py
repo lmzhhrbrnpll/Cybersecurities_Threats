@@ -159,16 +159,6 @@ st.subheader("Cyber Attacks Over Time")
 yearly_attacks = df_selection.groupby('Year').size()
 st.line_chart(yearly_attacks)
 
-# Vulnerability analysis
-st.subheader("Security Vulnerabilities")
-vuln_counts = df_selection['Security Vulnerability Type'].value_counts()
-st.bar_chart(vuln_counts)
-
-# Defense mechanisms effectiveness
-st.subheader("Defense Mechanisms Used")
-defense_counts = df_selection['Defense Mechanism Used'].value_counts()
-st.bar_chart(defense_counts)
-
 # Resolution time analysis
 st.subheader("Incident Resolution Time Analysis")
 resolution_stats = df_selection['Incident Resolution Time (in Hours)'].describe()
@@ -190,17 +180,7 @@ st.write("**Top 5 Most Costly Incidents:**")
 top_costly = df_selection.nlargest(5, 'Financial Loss (in Million $)')[['Country', 'Attack Type', 'Target Industry', 'Financial Loss (in Million $)']]
 st.dataframe(top_costly, use_container_width=True)
 
-# Attack type vs financial loss
-st.write("**Average Financial Loss by Attack Type:**")
-avg_loss_by_attack = df_selection.groupby('Attack Type')['Financial Loss (in Million $)'].mean().sort_values(ascending=False)
-st.dataframe(avg_loss_by_attack.round(2), use_container_width=True)
-
-# Country analysis
-st.write("**Incidents by Country:**")
-country_analysis = df_selection['Country'].value_counts()
-st.dataframe(country_analysis, use_container_width=True)
-
-# --- DISPLAY RAW DATA ---
+# --- DISPLAY DATA ---
 with st.expander("View Filtered Data"):
     st.dataframe(df_selection)
     st.markdown(f"**Data Dimensions:** {df_selection.shape[0]} rows, {df_selection.shape[1]} columns")
