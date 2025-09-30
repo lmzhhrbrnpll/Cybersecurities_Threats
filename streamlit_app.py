@@ -23,19 +23,9 @@ df = load_data()
 
 
 st.title("🌏 Global Cybersecurity Threats")
-def justified_text(text):
-    st.markdown(
-        f"""
-        <div style='text-align: justify; text-justify: inter-word; line-height: 1.6;'>
-        {text}
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-justified_text(
-    "In an increasingly interconnected world, understanding the dynamic landscape of cyber threats is not just an option—it's a necessity. This live dashboard provides a data-driven snapshot of the most pressing cybersecurity threats facing organizations and individuals globally. Explore the data, understand the trends, and fortify your digital defenses."
-)
+st.markdown("""
+In an increasingly interconnected world, understanding the dynamic landscape of cyber threats is not just an option—it's a necessity. This live dashboard provides a data-driven snapshot of the most pressing cybersecurity threats facing organizations and individuals globally. Explore the data, understand the trends, and fortify your digital defenses.
+""")
 
 # --- SIDEBAR FOR FILTERS ---
 st.sidebar.header("Filter Data")
@@ -43,29 +33,25 @@ st.sidebar.header("Filter Data")
 # Filter for country
 countries = st.sidebar.multiselect(
     "Select Countries",
-    options=df["Country"].unique(),
-    default=df["Country"].unique()[:3]  # Default to first 3 countries
+    options=df["Country"].unique()
 )
 
 # Filter for attack type
 attack_types = st.sidebar.multiselect(
     "Select Attack Types",
-    options=df["Attack Type"].unique(),
-    default=df["Attack Type"].unique()
+    options=df["Attack Type"].unique()
 )
 
 # Filter for target industry
 industries = st.sidebar.multiselect(
     "Select Target Industries",
-    options=df["Target Industry"].unique(),
-    default=df["Target Industry"].unique()[:3]
+    options=df["Target Industry"].unique()
 )
 
 # Filter for attack source
 attack_sources = st.sidebar.multiselect(
     "Select Attack Sources",
-    options=df["Attack Source"].unique(),
-    default=df["Attack Source"].unique()
+    options=df["Attack Source"].unique()
 )
 
 # Filter for year range
