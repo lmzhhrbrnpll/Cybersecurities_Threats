@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
    page_title="Cybersecurities Threats Data Analysis",
